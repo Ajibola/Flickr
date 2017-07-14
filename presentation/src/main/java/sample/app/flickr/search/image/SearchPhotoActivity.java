@@ -18,6 +18,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,10 +31,10 @@ import butterknife.ButterKnife;
 public class SearchPhotoActivity extends BaseActivity implements ISearchPhoto.View {
 
     @BindView(R.id.rv_images) RecyclerView recyclerViewImage;
-    SearchView searchView;
+    private SearchView searchView;
     private static final String STATE_IMAGE_LIST = "imageList";
 
-    ISearchPhoto.Presenter presenter;
+    private ISearchPhoto.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,14 +49,17 @@ public class SearchPhotoActivity extends BaseActivity implements ISearchPhoto.Vi
         recyclerViewImage.setLayoutManager(layoutManager);
         recyclerViewImage.setOnScrollListener(new EndlessScroll(layoutManager) {
             @Override
-            public void onLoadMore(int page, int totalItemsCount) {
+            public void onLoadMore(int page) {
                 presenter.loadMoreImages(Integer.toString(page));
             }
         });
 
         if (savedInstanceState != null) {
-            ArrayList<Photo> currPhotoList = (ArrayList<Photo>) savedInstanceState.getSerializable(STATE_IMAGE_LIST);
-            showImages(currPhotoList, false);
+            Serializable serializableObject = savedInstanceState.getSerializable(STATE_IMAGE_LIST);
+            if (serializableObject instanceof ArrayList) {
+                ArrayList<Photo> currPhotoList = (ArrayList<Photo>) serializableObject;
+                showImages(currPhotoList, false);
+            }
         }
     }
 
@@ -65,7 +69,7 @@ public class SearchPhotoActivity extends BaseActivity implements ISearchPhoto.Vi
         handleSearchIntent(intent);
     }
 
-    public void handleSearchIntent(Intent intent) {
+    private void handleSearchIntent(Intent intent) {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this,
@@ -129,7 +133,7 @@ public class SearchPhotoActivity extends BaseActivity implements ISearchPhoto.Vi
         PhotoAdapter adapter;
 
         if (recyclerViewImage.getAdapter() == null) {
-            adapter = new PhotoAdapter(presenter);
+            adapter = new PhotoAdapter();
             recyclerViewImage.setAdapter(adapter);
         } else {
             adapter = (PhotoAdapter) recyclerViewImage.getAdapter();
