@@ -16,7 +16,7 @@ public class PhotoDataMapper {
     public PhotoDataMapper() {
     }
 
-    public Photo convert(FlickrPhoto flickrPhoto) {
+    private Photo convert(FlickrPhoto flickrPhoto) {
         Photo photo = null;
 
         if (flickrPhoto != null) {

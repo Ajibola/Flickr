@@ -1,7 +1,6 @@
 package sample.app.flickr.model;
 
 import sample.app.flickr.R;
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -17,7 +16,7 @@ import butterknife.ButterKnife;
  * Created by hp on 7/14/2017.
  */
 
-public class PhotoViewHolder extends RecyclerView.ViewHolder {
+class PhotoViewHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.img_photo) ImageView photoImage;
     @BindView(R.id.tv_title) TextView textTitle;

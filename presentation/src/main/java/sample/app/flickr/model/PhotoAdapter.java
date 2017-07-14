@@ -1,9 +1,7 @@
 package sample.app.flickr.model;
 
 import sample.app.flickr.R;
-import sample.app.flickr.search.image.ISearchPhoto;
 
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,10 +18,8 @@ import java.util.List;
 public class PhotoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private final List<Photo> photoList;
-    private final ISearchPhoto.Presenter presenter;
 
-    public PhotoAdapter(@NonNull ISearchPhoto.Presenter presenter) {
-        this.presenter = presenter;
+    public PhotoAdapter() {
         photoList = new ArrayList<>();
     }
 
