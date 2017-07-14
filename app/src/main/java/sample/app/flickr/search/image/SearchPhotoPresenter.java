@@ -21,31 +21,7 @@ public class SearchPhotoPresenter implements ISearchPhoto.Presenter {
     @Override
     public void searchImage(String imageText, String page) {
         view.showLoading();
-        List<Photo> photos = new ArrayList<>();
-        photos.add(new Photo("http://farm5.static.flickr.com/4210/35849005346_8a31e516ec.jpg", "Blank"));
-        photos.add(new Photo("https://s.yimg.com/pw/images/en-us/photo_unavailable.png", "Blank"));
-        photos.add(new Photo("https://s.yimg.com/pw/images/en-us/photo_unavailable.png", "Blank"));
-        photos.add(new Photo("https://s.yimg.com/pw/images/en-us/photo_unavailable.png", "Blank"));
-        photos.add(new Photo("https://s.yimg.com/pw/images/en-us/photo_unavailable.png", "Blank"));
-        photos.add(new Photo("https://s.yimg.com/pw/images/en-us/photo_unavailable.png", "Blank"));
-        photos.add(new Photo("https://s.yimg.com/pw/images/en-us/photo_unavailable.png", "Blank"));
-        photos.add(new Photo("https://s.yimg.com/pw/images/en-us/photo_unavailable.png", "Blank"));
-        photos.add(new Photo("https://s.yimg.com/pw/images/en-us/photo_unavailable.png", "Blank"));
-        photos.add(new Photo("https://s.yimg.com/pw/images/en-us/photo_unavailable.png", "Blank"));
-        photos.add(new Photo("https://s.yimg.com/pw/images/en-us/photo_unavailable.png", "Blank"));
-        photos.add(new Photo("https://s.yimg.com/pw/images/en-us/photo_unavailable.png", "Blank"));
-        photos.add(new Photo("https://s.yimg.com/pw/images/en-us/photo_unavailable.png", "Blank"));
-        photos.add(new Photo("https://s.yimg.com/pw/images/en-us/photo_unavailable.png", "Blank"));
-        photos.add(new Photo("https://s.yimg.com/pw/images/en-us/photo_unavailable.png", "Blank"));
-        photos.add(new Photo("https://s.yimg.com/pw/images/en-us/photo_unavailable.png", "Blank"));
-        photos.add(new Photo("https://s.yimg.com/pw/images/en-us/photo_unavailable.png", "Blank"));
-        photos.add(new Photo("https://s.yimg.com/pw/images/en-us/photo_unavailable.png", "Blank"));
-        photos.add(new Photo("https://s.yimg.com/pw/images/en-us/photo_unavailable.png", "Blank"));
-        photos.add(new Photo("https://s.yimg.com/pw/images/en-us/photo_unavailable.png", "Blank"));
-        photos.add(new Photo("https://s.yimg.com/pw/images/en-us/photo_unavailable.png", "Blank"));
-        photos.add(new Photo("https://s.yimg.com/pw/images/en-us/photo_unavailable.png", "Blank"));
 
-        loadImages(photos);
     }
 
     @Override
