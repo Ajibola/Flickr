@@ -2,7 +2,6 @@ package sample.app.flickr.search.image;
 
 import android.app.SearchManager;
 
-import io.paperdb.Paper;
 import sample.app.flickr.R;
 import sample.app.flickr.model.Photo;
 import sample.app.flickr.model.PhotoAdapter;
@@ -31,28 +30,32 @@ import butterknife.ButterKnife;
 public class SearchPhotoActivity extends BaseActivity implements ISearchPhoto.View {
 
     @BindView(R.id.rv_images) RecyclerView recyclerViewImage;
+    SearchView searchView;
     private static final String STATE_IMAGE_LIST = "imageList";
 
     ISearchPhoto.Presenter presenter;
-    int page = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        Paper.init(this);
 
+        presenter = new SearchPhotoPresenter(this);
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3,
                 StaggeredGridLayoutManager.VERTICAL);
         layoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
         recyclerViewImage.setLayoutManager(layoutManager);
-
-        presenter = new SearchPhotoPresenter(this);
+        recyclerViewImage.setOnScrollListener(new EndlessScroll(layoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount) {
+                presenter.loadMoreImages(Integer.toString(page));
+            }
+        });
 
         if (savedInstanceState != null) {
             ArrayList<Photo> currPhotoList = (ArrayList<Photo>) savedInstanceState.getSerializable(STATE_IMAGE_LIST);
-            showImages(currPhotoList);
+            showImages(currPhotoList, false);
         }
     }
 
@@ -68,7 +71,7 @@ public class SearchPhotoActivity extends BaseActivity implements ISearchPhoto.Vi
             SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this,
                     SearchSuggestionProvider.AUTHORITY, SearchSuggestionProvider.MODE);
             suggestions.saveRecentQuery(query, null);
-            presenter.searchImage(query, Integer.toString(page));
+            presenter.searchImage(query);
         }
     }
 
@@ -77,11 +80,37 @@ public class SearchPhotoActivity extends BaseActivity implements ISearchPhoto.Vi
         getMenuInflater().inflate(R.menu.menu_search, menu);
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         MenuItem searchMenuItem = menu.findItem(R.id.search);
-        SearchView searchView = (SearchView) searchMenuItem.getActionView();
+        searchView = (SearchView) searchMenuItem.getActionView();
 
         if (searchView != null) {
             searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
             searchView.setSubmitButtonEnabled(true);
+            searchView.setOnSuggestionListener(new SearchView.OnSuggestionListener() {
+                @Override
+                public boolean onSuggestionSelect(int position) {
+                    searchView.setQuery("", false);
+                    searchView.setIconified(true);
+                    return false;
+                }
+
+                @Override
+                public boolean onSuggestionClick(int position) {
+                    searchView.setQuery("", false);
+                    searchView.setIconified(true);
+                    return false;
+                }
+            });
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    return false;
+                }
+            });
         }
 
         return true;
@@ -96,10 +125,20 @@ public class SearchPhotoActivity extends BaseActivity implements ISearchPhoto.Vi
     }
 
     @Override
-    public void showImages(List<Photo> photoList) {
-        PhotoAdapter adapter = new PhotoAdapter(presenter);
-        adapter.addAll(photoList);
-        recyclerViewImage.setAdapter(adapter);
-        recyclerViewImage.getAdapter().notifyDataSetChanged();
+    public void showImages(List<Photo> photoList, boolean update) {
+        PhotoAdapter adapter;
+
+        if (recyclerViewImage.getAdapter() == null) {
+            adapter = new PhotoAdapter(presenter);
+            recyclerViewImage.setAdapter(adapter);
+        } else {
+            adapter = (PhotoAdapter) recyclerViewImage.getAdapter();
+        }
+
+        if (update) {
+            adapter.updateList(photoList);
+        } else {
+            adapter.refreshList(photoList);
+        }
     }
 }

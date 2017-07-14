@@ -45,8 +45,17 @@ public class PhotoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         return photoList.size();
     }
 
-    public void addAll(Collection<Photo> collection) {
+    public void refreshList(Collection<Photo> collection) {
+        photoList.clear();
         photoList.addAll(collection);
+        notifyDataSetChanged();
+    }
+
+    public void updateList(Collection<Photo> collection) {
+        int oldRange = photoList.size();
+        photoList.addAll(collection);
+        int newRange = photoList.size();
+        notifyItemRangeInserted(oldRange, newRange);
     }
 
     public List<Photo> getAll() {

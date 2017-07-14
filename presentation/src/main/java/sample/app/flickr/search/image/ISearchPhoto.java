@@ -13,13 +13,13 @@ public interface ISearchPhoto {
 
     interface View extends BaseView {
 
-        void showImages(List<Photo> photoList);
+        void showImages(List<Photo> photoList, boolean update);
     }
 
     interface Presenter {
 
-        void searchImage(String imageText, String page);
+        void searchImage(String text);
 
-        void loadImages(List<Photo> photos);
+        void loadMoreImages(String page);
     }
 }
