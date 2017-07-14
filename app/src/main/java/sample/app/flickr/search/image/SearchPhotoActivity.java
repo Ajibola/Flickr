@@ -2,6 +2,7 @@ package sample.app.flickr.search.image;
 
 import android.app.SearchManager;
 
+import io.paperdb.Paper;
 import sample.app.flickr.R;
 import sample.app.flickr.model.Photo;
 import sample.app.flickr.model.PhotoAdapter;
@@ -40,6 +41,7 @@ public class SearchPhotoActivity extends BaseActivity implements ISearchPhoto.Vi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        Paper.init(this);
 
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3,
                 StaggeredGridLayoutManager.VERTICAL);
