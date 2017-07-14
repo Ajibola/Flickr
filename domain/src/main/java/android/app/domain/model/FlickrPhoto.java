@@ -4,12 +4,12 @@ package android.app.domain.model;
  * Created by hp on 7/13/2017.
  */
 
-public class FlickrImage {
-    
+public class FlickrPhoto {
+
     private String title;
     private String url;
 
-    public FlickrImage(String title, String url) {
+    public FlickrPhoto(String title, String url) {
         this.title = title;
         this.url = url;
     }
