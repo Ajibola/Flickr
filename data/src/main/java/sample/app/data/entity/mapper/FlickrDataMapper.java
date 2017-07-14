@@ -1,12 +1,7 @@
-package android.app.data.entity.mapper;
+package sample.app.data.entity.mapper;
 
-import android.app.data.entity.FlickrPhotoEntity;
-import android.app.domain.model.FlickrPhoto;
-import android.util.Log;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import sample.app.data.entity.FlickrPhotoEntity;
+import sample.app.domain.model.FlickrPhoto;
 
 import java.util.ArrayList;
 import java.util.List;

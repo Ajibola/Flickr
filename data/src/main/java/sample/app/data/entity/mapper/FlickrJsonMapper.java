@@ -1,6 +1,7 @@
-package android.app.data.entity.mapper;
+package sample.app.data.entity.mapper;
 
-import android.app.data.entity.FlickrPhotoEntity;
+import sample.app.data.entity.FlickrPhotoEntity;
+
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -50,15 +51,18 @@ public class FlickrJsonMapper {
     public List<FlickrPhotoEntity> parseFlickrResponse(String flickJsonResponse) {
         List<FlickrPhotoEntity> flickrPhotoEntities = new ArrayList<>();
         try {
-            JSONObject jsonObject = new JSONObject(flickJsonResponse);
+            if (flickJsonResponse != null) {
+                JSONObject jsonObject = new JSONObject(flickJsonResponse);
+                JSONObject photosJSONObject = (jsonObject != null) ? jsonObject.optJSONObject("photos") : null;
 
-            if (jsonObject != null) {
-                JSONArray resultArray = jsonObject.optJSONArray("photo");
-                if (resultArray != null) {
-                    for (int i = 0; i < resultArray.length(); i++) {
-                        JSONObject photoObject = resultArray.optJSONObject(i);
-                        FlickrPhotoEntity flickrPhotoEntity = parseFlickrPhoto(photoObject.toString());
-                        flickrPhotoEntities.add(flickrPhotoEntity);
+                if (photosJSONObject != null) {
+                    JSONArray resultArray = photosJSONObject.optJSONArray("photo");
+                    if (resultArray != null) {
+                        for (int i = 0; i < resultArray.length(); i++) {
+                            JSONObject photoObject = resultArray.optJSONObject(i);
+                            FlickrPhotoEntity flickrPhotoEntity = parseFlickrPhoto(photoObject.toString());
+                            flickrPhotoEntities.add(flickrPhotoEntity);
+                        }
                     }
                 }
             }
