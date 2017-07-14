@@ -1,4 +1,4 @@
-<manifest package="android.app.data"
+<manifest package="sample.app.data"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application

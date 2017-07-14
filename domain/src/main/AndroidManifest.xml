@@ -1,4 +1,4 @@
-<manifest package="android.app.domain"
+<manifest package="sample.app.domain"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
