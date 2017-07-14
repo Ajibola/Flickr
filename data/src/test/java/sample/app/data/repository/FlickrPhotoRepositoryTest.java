@@ -6,15 +6,12 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Callback;
 import sample.app.data.network.FlickrSearchApiImpl;
 import sample.app.domain.interactor.DefaultListener;
 import sample.app.domain.model.FlickrPhoto;
 
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.verifyZeroInteractions;
 

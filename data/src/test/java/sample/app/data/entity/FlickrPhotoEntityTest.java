@@ -3,8 +3,6 @@ package sample.app.data.entity;
 import org.junit.Before;
 import org.junit.Test;
 
-import sample.app.domain.model.FlickrPhoto;
-
 import static org.junit.Assert.assertEquals;
 
 /**

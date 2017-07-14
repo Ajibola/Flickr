@@ -10,7 +10,6 @@ import sample.app.domain.repository.FlickrRepository;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.verifyZeroInteractions;
 
 /**
  * Test the Search Photo Interactor
@@ -23,8 +22,6 @@ public class SearchPhotoInteractorTest {
 
     @Mock
     private FlickrRepository flickrRepository;
-    @Mock
-    private DefaultListener defaultListener;
 
     @Before
     public void setUp() {
@@ -33,10 +30,9 @@ public class SearchPhotoInteractorTest {
 
     @Test
     public void testSearchPhotoInteractor_SearchImage() {
-        searchPhotoInteractor.searchImage("", "", defaultListener);
+        searchPhotoInteractor.searchImage("", "", null);
 
-        verify(flickrRepository).getSearchPhotos("", "", defaultListener);
+        verify(flickrRepository).getSearchPhotos("", "", null);
         verifyNoMoreInteractions(flickrRepository);
-        verifyZeroInteractions(defaultListener);
     }
 }
