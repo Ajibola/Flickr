@@ -22,7 +22,7 @@ public class FlickrJsonMapper {
     public FlickrJsonMapper() {
     }
 
-    public FlickrPhotoEntity parseFlickrPhoto(String userJsonResponse) {
+    private FlickrPhotoEntity parseFlickrPhoto(String userJsonResponse) {
         FlickrPhotoEntity flickrPhotoEntity = new FlickrPhotoEntity();
 
         if (userJsonResponse != null) {

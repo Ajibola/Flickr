@@ -17,7 +17,7 @@ public class FlickrDataMapper {
     public FlickrDataMapper() {
     }
 
-    public FlickrPhoto convert(FlickrPhotoEntity flickrPhotoEntity) {
+    private FlickrPhoto convert(FlickrPhotoEntity flickrPhotoEntity) {
         FlickrPhoto flickrPhoto = null;
 
         if (flickrPhotoEntity != null) {

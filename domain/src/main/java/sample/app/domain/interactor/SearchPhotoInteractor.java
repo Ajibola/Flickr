@@ -11,7 +11,7 @@ import java.util.List;
 
 public class SearchPhotoInteractor {
 
-    private FlickrRepository flickrRepository;
+    private final FlickrRepository flickrRepository;
 
     public SearchPhotoInteractor(FlickrRepository flickrRepository) {
         this.flickrRepository = flickrRepository;
