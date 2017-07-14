@@ -4,17 +4,17 @@ package android.app.data.entity;
  * Created by hp on 7/13/2017.
  */
 
-public class FlickrPhoto {
+public class FlickrPhotoEntity {
 
     private String id;
     private String owner;
     private String secret;
     private String server;
-    private String farm;
+    private int farm;
     private String title;
-    private String ispublic;
-    private String isfriend;
-    private String isfamily;
+    private boolean isPublic;
+    private boolean isFriend;
+    private boolean isFamily;
 
     public String getId() {
         return id;
@@ -48,11 +48,11 @@ public class FlickrPhoto {
         this.server = server;
     }
 
-    public String getFarm() {
+    public int getFarm() {
         return farm;
     }
 
-    public void setFarm(String farm) {
+    public void setFarm(int farm) {
         this.farm = farm;
     }
 
@@ -64,27 +64,27 @@ public class FlickrPhoto {
         this.title = title;
     }
 
-    public String getIspublic() {
-        return ispublic;
+    public boolean isPublic() {
+        return isPublic;
     }
 
-    public void setIspublic(String ispublic) {
-        this.ispublic = ispublic;
+    public void setPublic(boolean aPublic) {
+        isPublic = aPublic;
     }
 
-    public String getIsfriend() {
-        return isfriend;
+    public boolean isFriend() {
+        return isFriend;
     }
 
-    public void setIsfriend(String isfriend) {
-        this.isfriend = isfriend;
+    public void setFriend(boolean friend) {
+        isFriend = friend;
     }
 
-    public String getIsfamily() {
-        return isfamily;
+    public boolean isFamily() {
+        return isFamily;
     }
 
-    public void setIsfamily(String isfamily) {
-        this.isfamily = isfamily;
+    public void setFamily(boolean family) {
+        isFamily = family;
     }
 }
