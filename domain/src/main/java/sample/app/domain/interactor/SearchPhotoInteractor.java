@@ -17,7 +17,7 @@ public class SearchPhotoInteractor {
         this.flickrRepository = flickrRepository;
     }
 
-    public List<FlickrPhoto> searchImage(String text, String page) {
-        return flickrRepository.getSearchPhotos(text, page);
+    public void searchImage(String text, String page, DefaultListener<List<FlickrPhoto>> defaultListener) {
+        flickrRepository.getSearchPhotos(text, page, defaultListener);
     }
 }

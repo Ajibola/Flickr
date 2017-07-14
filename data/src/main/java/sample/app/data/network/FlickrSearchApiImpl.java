@@ -19,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class FlickrSearchApiImpl {
 
-    public void searchImage(String text, String page) {
+    public void searchImage(String text, String page, Callback<String> callback) {
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder()
                 .connectTimeout(1, TimeUnit.MINUTES)
                 .writeTimeout(1, TimeUnit.MINUTES)
@@ -33,17 +33,6 @@ public class FlickrSearchApiImpl {
 
         final FlickrSearchApi flickrSearchAPI = retrofit.create(FlickrSearchApi.class);
         Call<String> call = flickrSearchAPI.searchImage(text, page);
-        call.enqueue(new Callback<String>() {
-            @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                List<FlickrPhotoEntity> flickrPhotoEntities = new FlickrJsonMapper().parseFlickrResponse(
-                        response.body());
-            }
-
-            @Override
-            public void onFailure(Call<String> call, Throwable t) {
-
-            }
-        });
+        call.enqueue(callback);
     }
 }

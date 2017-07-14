@@ -1,5 +1,6 @@
 package android.app.domain.repository;
 
+import android.app.domain.interactor.DefaultListener;
 import android.app.domain.model.FlickrPhoto;
 
 import java.util.List;
@@ -10,5 +11,5 @@ import java.util.List;
 
 public interface FlickrRepository {
 
-    List<FlickrPhoto> getSearchPhotos(String text, String page);
+    void getSearchPhotos(String text, String page, DefaultListener<List<FlickrPhoto>> defaultListener);
 }
