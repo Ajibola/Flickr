@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="android.app.flickr"
+<manifest package="sample.app.flickr"
           xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="false"
@@ -10,11 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <provider
-            android:name=".model.SearchSuggestionProvider"
-            android:authorities="android.app.flickr.model.SearchSuggestionProvider"/>
+            android:name="sample.app.flickr.search.suggestion.SearchSuggestionProvider"
+            android:authorities="sample.app.flickr.search.suggestion.SearchSuggestionProvider"/>
 
         <activity
-            android:name=".MainActivity"
+            android:name="sample.app.flickr.search.image.SearchPhotoActivity"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
