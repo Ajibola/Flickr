@@ -2,6 +2,6 @@
 <searchable xmlns:android="http://schemas.android.com/apk/res/android"
             android:hint="@string/search_hint"
             android:label="@string/search_label"
-            android:searchSuggestAuthority="android.app.flickr.model.SearchSuggestionProvider"
+            android:searchSuggestAuthority="sample.app.flickr.search.suggestion.SearchSuggestionProvider"
             android:searchSuggestSelection=" ?">
 </searchable>

@@ -1,4 +1,4 @@
-package android.app.flickr.search.suggestion;
+package sample.app.flickr.search.suggestion;
 
 import android.content.SearchRecentSuggestionsProvider;
 
@@ -8,7 +8,7 @@ import android.content.SearchRecentSuggestionsProvider;
 
 public class SearchSuggestionProvider extends SearchRecentSuggestionsProvider {
 
-    public final static String AUTHORITY = "android.app.flickr.search.suggestion.SearchSuggestionProvider";
+    public final static String AUTHORITY = "sample.app.flickr.search.suggestion.SearchSuggestionProvider";
     public final static int MODE = DATABASE_MODE_QUERIES;
 
     public SearchSuggestionProvider() {

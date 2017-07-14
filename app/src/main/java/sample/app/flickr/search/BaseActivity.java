@@ -1,7 +1,7 @@
-package android.app.flickr.search;
+package sample.app.flickr.search;
 
 import android.app.Dialog;
-import android.app.flickr.R;
+import sample.app.flickr.R;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
