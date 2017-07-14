@@ -22,8 +22,17 @@ android {
     }
 }
 
+configurations.all {
+    resolutionStrategy {
+        force 'org.ow2.asm:asm:5.0.4'
+    }
+}
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':domain')
+    compile project(':data')
+
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
