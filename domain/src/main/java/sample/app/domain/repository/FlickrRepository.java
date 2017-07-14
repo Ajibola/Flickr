@@ -6,9 +6,8 @@ import sample.app.domain.model.FlickrPhoto;
 import java.util.List;
 
 /**
- * Created by hp on 7/14/2017.
+ * This interface defines the method for searching photos
  */
-
 public interface FlickrRepository {
 
     void getSearchPhotos(String text, String page, DefaultListener<List<FlickrPhoto>> defaultListener);

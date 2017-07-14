@@ -11,9 +11,8 @@ import android.view.Window;
 import android.widget.Toast;
 
 /**
- * Created by hp on 7/14/2017.
+ * Base Activity that all activities extend. Inherit loading functionality and showing error messages.
  */
-
 public class BaseActivity extends AppCompatActivity {
 
     private LoadingDialog loadingDialog;
@@ -42,9 +41,12 @@ public class BaseActivity extends AppCompatActivity {
     }
 }
 
+/**
+ * Loading dialog implementation
+ */
 class LoadingDialog extends Dialog {
 
-    public LoadingDialog(Context context) {
+    LoadingDialog(Context context) {
         super(context);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.loading_dialog);

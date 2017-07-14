@@ -26,13 +26,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Main app entry point
+ * Search Activity for loading images from the image search API
  */
 public class SearchPhotoActivity extends BaseActivity implements ISearchPhoto.View {
 
     @BindView(R.id.rv_images) RecyclerView recyclerViewImage;
     private SearchView searchView;
-    private static final String STATE_IMAGE_LIST = "imageList";
+    private static final String STATE_IMAGE_LIST = "image_list_state";
 
     private ISearchPhoto.Presenter presenter;
 

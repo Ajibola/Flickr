@@ -3,9 +3,8 @@ package sample.app.flickr.model;
 import java.io.Serializable;
 
 /**
- * Created by hp on 7/14/2017.
+ * Data object for holding the photos details.
  */
-
 public class Photo implements Serializable {
 
     private String title;
@@ -20,15 +19,7 @@ public class Photo implements Serializable {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getUrl() {
         return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
     }
 }

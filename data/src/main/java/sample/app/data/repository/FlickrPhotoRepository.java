@@ -1,5 +1,7 @@
 package sample.app.data.repository;
 
+import android.support.annotation.NonNull;
+
 import sample.app.data.entity.FlickrPhotoEntity;
 import sample.app.data.entity.mapper.FlickrDataMapper;
 import sample.app.data.entity.mapper.FlickrJsonMapper;
@@ -15,9 +17,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Created by hp on 7/14/2017.
+ * Implementation of repository in domain for searching photos
  */
-
 public class FlickrPhotoRepository implements FlickrRepository {
 
     @Override
@@ -25,7 +26,7 @@ public class FlickrPhotoRepository implements FlickrRepository {
         FlickrSearchApiImpl flickrSearchApi = new FlickrSearchApiImpl();
         Callback<String> callback = new Callback<String>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
+            public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
                 String responseStr = response.body();
                 if (responseStr != null) {
                     List<FlickrPhotoEntity> flickrPhotoEntities = new FlickrJsonMapper().parseFlickrResponse(
@@ -37,7 +38,7 @@ public class FlickrPhotoRepository implements FlickrRepository {
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(@NonNull Call<String> call, @NonNull Throwable t) {
                 defaultListener.onFailure(new Exception("Unable to load images"));
             }
         };

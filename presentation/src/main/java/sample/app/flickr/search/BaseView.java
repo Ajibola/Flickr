@@ -1,9 +1,8 @@
 package sample.app.flickr.search;
 
 /**
- * Created by hp on 7/14/2017.
+ * Method definitions to be included in all views that inherit BaseView
  */
-
 public interface BaseView {
 
     void showLoading();

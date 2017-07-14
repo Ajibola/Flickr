@@ -10,9 +10,8 @@ import java.util.List;
 import sample.app.flickr.model.PhotoDataMapper;
 
 /**
- * Created by hp on 7/14/2017.
+ * Presenter performs ui changes in the view and also fetches data from the interactor implementation
  */
-
 public class SearchPhotoPresenter implements ISearchPhoto.Presenter {
 
     private String searchText = "";

@@ -6,9 +6,8 @@ import sample.app.domain.repository.FlickrRepository;
 import java.util.List;
 
 /**
- * Created by hp on 7/14/2017.
+ * The interactor defines the use case for searching photos from the view
  */
-
 public class SearchPhotoInteractor {
 
     private final FlickrRepository flickrRepository;

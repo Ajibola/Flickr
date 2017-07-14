@@ -7,12 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by hp on 7/14/2017.
+ * Converts photo entity to domain photo data object
  */
-
 public class FlickrDataMapper {
-
-    private static final String TAG = FlickrDataMapper.class.getSimpleName();
 
     public FlickrDataMapper() {
     }

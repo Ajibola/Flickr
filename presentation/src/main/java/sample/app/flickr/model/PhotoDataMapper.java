@@ -6,12 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by hp on 7/14/2017.
+ * Maps the domain layer flickr photo object to the presentation layers photo data object
  */
-
 public class PhotoDataMapper {
-
-    private static final String TAG = PhotoDataMapper.class.getSimpleName();
 
     public PhotoDataMapper() {
     }

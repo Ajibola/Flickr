@@ -12,9 +12,8 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * Created by hp on 7/14/2017.
+ * PhotoAdapter loads and manages items on the recycler view
  */
-
 public class PhotoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private final List<Photo> photoList;

@@ -9,9 +9,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 /**
- * Created by hp on 7/14/2017.
+ * Implementation of the search API
  */
-
 public class FlickrSearchApiImpl {
 
     public void searchImage(String text, String page, Callback<String> callback) {

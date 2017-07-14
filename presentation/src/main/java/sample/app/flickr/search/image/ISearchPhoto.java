@@ -6,9 +6,8 @@ import sample.app.flickr.model.Photo;
 import sample.app.flickr.search.BaseView;
 
 /**
- * Created by hp on 7/14/2017.
+ * Basic contract for presenter and photo search view
  */
-
 public interface ISearchPhoto {
 
     interface View extends BaseView {

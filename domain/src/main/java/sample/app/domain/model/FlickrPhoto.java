@@ -1,9 +1,8 @@
 package sample.app.domain.model;
 
 /**
- * Created by hp on 7/13/2017.
+ * Holds the photo object in the domain
  */
-
 public class FlickrPhoto {
 
     private String title;

@@ -13,9 +13,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by hp on 7/14/2017.
+ * The UI view that holds the image and its title
  */
-
 class PhotoViewHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.img_photo) ImageView photoImage;

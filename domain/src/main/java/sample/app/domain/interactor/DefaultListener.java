@@ -1,9 +1,9 @@
 package sample.app.domain.interactor;
 
 /**
- * Created by hp on 7/14/2017.
+ * Defines call back methods that will be implemented by subclasses
+ * @param <T>
  */
-
 public interface DefaultListener<T> {
 
     void onFailure(Throwable exception);

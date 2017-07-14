@@ -4,16 +4,15 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
 /**
- * Created by hp on 7/14/2017.
+ * RecyclerView scroll listener implementation for bottom less scrolling
+ *
  */
-
 abstract class EndlessScroll extends RecyclerView.OnScrollListener {
 
     private int visibleThreshold = 20;
     private int currentPage = 1;
     private int previousTotalItemCount = 0;
     private boolean loading = true;
-    private int startingPageIndex = 1;
 
     private final RecyclerView.LayoutManager mLayoutManager;
 

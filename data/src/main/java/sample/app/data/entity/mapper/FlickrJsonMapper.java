@@ -12,9 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by hp on 7/14/2017.
+ * Converts json string to object or list of objects
  */
-
 public class FlickrJsonMapper {
 
     private static final String TAG = FlickrJsonMapper.class.getSimpleName();
@@ -22,24 +21,18 @@ public class FlickrJsonMapper {
     public FlickrJsonMapper() {
     }
 
-    private FlickrPhotoEntity parseFlickrPhoto(String userJsonResponse) {
+    FlickrPhotoEntity parseFlickrPhoto(String userJsonResponse) {
         FlickrPhotoEntity flickrPhotoEntity = new FlickrPhotoEntity();
 
         if (userJsonResponse != null) {
             try {
                 JSONObject jsonObject = new JSONObject(userJsonResponse);
 
-                if (jsonObject != null) {
-                    flickrPhotoEntity.setId(jsonObject.optString("id"));
-                    flickrPhotoEntity.setOwner(jsonObject.optString("owner"));
-                    flickrPhotoEntity.setSecret(jsonObject.optString("secret"));
-                    flickrPhotoEntity.setServer(jsonObject.optString("server"));
-                    flickrPhotoEntity.setFarm(jsonObject.optInt("farm"));
-                    flickrPhotoEntity.setTitle(jsonObject.optString("title"));
-                    flickrPhotoEntity.setPublic(jsonObject.optBoolean("ispublic"));
-                    flickrPhotoEntity.setFriend(jsonObject.optBoolean("isfriend"));
-                    flickrPhotoEntity.setFamily(jsonObject.optBoolean("isfamily"));
-                }
+                flickrPhotoEntity.setId(jsonObject.optString("id"));
+                flickrPhotoEntity.setSecret(jsonObject.optString("secret"));
+                flickrPhotoEntity.setServer(jsonObject.optString("server"));
+                flickrPhotoEntity.setFarm(jsonObject.optInt("farm"));
+                flickrPhotoEntity.setTitle(jsonObject.optString("title"));
             } catch (JSONException ex) {
                 Log.d(TAG, "Error parsing Flickr response");
             }
@@ -53,7 +46,7 @@ public class FlickrJsonMapper {
         try {
             if (flickJsonResponse != null) {
                 JSONObject jsonObject = new JSONObject(flickJsonResponse);
-                JSONObject photosJSONObject = (jsonObject != null) ? jsonObject.optJSONObject("photos") : null;
+                JSONObject photosJSONObject = jsonObject.optJSONObject("photos");
 
                 if (photosJSONObject != null) {
                     JSONArray resultArray = photosJSONObject.optJSONArray("photo");

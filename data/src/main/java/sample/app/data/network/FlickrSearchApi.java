@@ -5,9 +5,8 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 /**
- * Created by hp on 7/14/2017.
+ * Retrofit interface defining the API methods, constants and variables
  */
-
 interface FlickrSearchApi {
 
     String API_BASE = "https://api.flickr.com/services/";
