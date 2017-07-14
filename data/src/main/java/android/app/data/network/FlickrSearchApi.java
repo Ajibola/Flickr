@@ -1,6 +1,6 @@
 package android.app.data.network;
 
-import android.app.data.entity.FlickrPhoto;
+import android.app.data.entity.FlickrPhotoEntity;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import retrofit2.http.Query;
  * Created by hp on 7/14/2017.
  */
 
-public interface FlickrImageSearch {
+public interface FlickrSearchApi {
 
     public static final String API_BASE = "https://api.flickr.com/services/rest/?";
     public static final String API_METHOD = "method=flickr.photos.search&";
@@ -21,6 +21,6 @@ public interface FlickrImageSearch {
     public static final String API_ENDPOINT = API_BASE + API_METHOD + API_KEY + API_FORMAT;
 
     @GET("")
-    Call<List<FlickrPhoto>> searchImage(@Query("text") String text, @Query("page") String page);
+    Call<String> searchImage(@Query("text") String text, @Query("page") String page);
 
 }
