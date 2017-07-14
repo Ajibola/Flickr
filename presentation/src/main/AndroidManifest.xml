@@ -13,8 +13,9 @@
         android:theme="@style/AppTheme">
         <provider
             android:name="sample.app.flickr.search.suggestion.SearchSuggestionProvider"
-            android:authorities="sample.app.flickr.search.suggestion.SearchSuggestionProvider"/>
+            android:authorities="sample.app.flickr.search.suggestion.SearchSuggestionProvider" android:exported="false"/>
 
+        <activity android:name=".search.BaseActivity"/>
         <activity
             android:name="sample.app.flickr.search.image.SearchPhotoActivity"
             android:launchMode="singleTop">
