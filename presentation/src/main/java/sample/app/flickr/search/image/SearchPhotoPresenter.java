@@ -15,10 +15,10 @@ import sample.app.flickr.model.PhotoDataMapper;
 
 public class SearchPhotoPresenter implements ISearchPhoto.Presenter {
 
-    String searchText = "";
-    boolean loadMore = false;
-    ISearchPhoto.View view;
-    SearchPhotoInteractor searchPhotoInteractor;
+    private String searchText = "";
+    private boolean loadMore = false;
+    private final ISearchPhoto.View view;
+    private final SearchPhotoInteractor searchPhotoInteractor;
 
     public SearchPhotoPresenter(ISearchPhoto.View view) {
         this.view = view;
