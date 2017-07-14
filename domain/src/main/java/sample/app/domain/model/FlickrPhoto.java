@@ -1,4 +1,4 @@
-package android.app.domain.model;
+package sample.app.domain.model;
 
 /**
  * Created by hp on 7/13/2017.

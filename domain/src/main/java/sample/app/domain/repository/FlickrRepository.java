@@ -1,7 +1,7 @@
-package android.app.domain.repository;
+package sample.app.domain.repository;
 
-import android.app.domain.interactor.DefaultListener;
-import android.app.domain.model.FlickrPhoto;
+import sample.app.domain.interactor.DefaultListener;
+import sample.app.domain.model.FlickrPhoto;
 
 import java.util.List;
 

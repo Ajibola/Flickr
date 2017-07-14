@@ -1,6 +1,6 @@
-package android.app.data.local;
+package sample.app.data.local;
 
-import android.app.data.entity.FlickrPhotoEntity;
+import sample.app.data.entity.FlickrPhotoEntity;
 
 import java.util.List;
 
