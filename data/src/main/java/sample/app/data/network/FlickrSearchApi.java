@@ -1,8 +1,7 @@
-package android.app.data.network;
+package sample.app.data.network;
 
-import android.app.data.entity.FlickrPhotoEntity;
-
-import java.util.List;
+import retrofit2.http.Path;
+import sample.app.data.entity.FlickrPhotoEntity;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -14,13 +13,17 @@ import retrofit2.http.Query;
 
 public interface FlickrSearchApi {
 
-    public static final String API_BASE = "https://api.flickr.com/services/rest/?";
-    public static final String API_METHOD = "method=flickr.photos.search&";
-    public static final String API_KEY = "api_key=3e7cc266ae2b0e0d78e279ce8e361736&";
-    public static final String API_FORMAT = "format=json&nojsoncallback=1&safe_search=1&";
-    public static final String API_ENDPOINT = API_BASE + API_METHOD + API_KEY + API_FORMAT;
+    public static final String API_BASE = "https://api.flickr.com/services/";
+    public static final String API_SEARCH_METHOD = "flickr.photos.search";
+    public static final String API_KEY = "3e7cc266ae2b0e0d78e279ce8e361736";
+    public static final String API_FORMAT = "json";
+    public static final String API_CALLBACK = "1";
+    public static final String API_SAFE_SEARCH = "1";
 
-    @GET("")
-    Call<String> searchImage(@Query("text") String text, @Query("page") String page);
+    @GET("rest/")
+    Call<String> searchImage(
+            @Query("method") String method, @Query("api_key") String api_key, @Query("format")
+            String format, @Query("nojsoncallback") String callback, @Query("safe_search") String safeSearch, @Query
+            ("text") String text, @Query("page") String page);
 
 }

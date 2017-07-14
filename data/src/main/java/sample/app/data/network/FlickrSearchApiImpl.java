@@ -1,17 +1,12 @@
-package android.app.data.network;
+package sample.app.data.network;
 
-import android.app.data.entity.FlickrPhotoEntity;
-import android.app.data.entity.mapper.FlickrJsonMapper;
-
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 /**
  * Created by hp on 7/14/2017.
@@ -26,13 +21,15 @@ public class FlickrSearchApiImpl {
                 .readTimeout(1, TimeUnit.MINUTES);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(FlickrSearchApi.API_ENDPOINT)
+                .baseUrl(FlickrSearchApi.API_BASE)
                 .client(httpClient.build())
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
 
+
         final FlickrSearchApi flickrSearchAPI = retrofit.create(FlickrSearchApi.class);
-        Call<String> call = flickrSearchAPI.searchImage(text, page);
+        Call<String> call = flickrSearchAPI.searchImage(FlickrSearchApi.API_SEARCH_METHOD, FlickrSearchApi.API_KEY,
+                FlickrSearchApi.API_FORMAT, FlickrSearchApi.API_CALLBACK, FlickrSearchApi.API_SAFE_SEARCH, text, page);
         call.enqueue(callback);
     }
 }
