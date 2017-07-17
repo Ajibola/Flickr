@@ -6,9 +6,8 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by hp on 7/14/2017.
+ * Unit tests for the data object
  */
-
 public class FlickrPhotoTest {
 
     private static final String IMAGE_TITLE = "image";
@@ -20,7 +19,7 @@ public class FlickrPhotoTest {
     }
 
     @Test
-    public void testDomainModel_FlickrPhoto() {
+    public void testDomainModelFlickrPhoto() {
         assertEquals(flickrPhoto.getTitle(), IMAGE_TITLE);
     }
 }

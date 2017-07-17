@@ -29,7 +29,7 @@ public class SearchPhotoInteractorTest {
     }
 
     @Test
-    public void testSearchPhotoInteractor_SearchImage() {
+    public void testSearchPhotoInteractorSearchImage() {
         searchPhotoInteractor.searchImage("", "", null);
 
         verify(flickrRepository).getSearchPhotos("", "", null);

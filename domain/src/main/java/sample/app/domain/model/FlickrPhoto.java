@@ -13,18 +13,34 @@ public class FlickrPhoto {
         this.url = url;
     }
 
+    /**
+     * @return returns the title variable
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * sets the title variable
+     *
+     * @param title new value for title
+     */
     public void setTitle(String title) {
         this.title = title;
     }
 
+    /**
+     * @return the url variable
+     */
     public String getUrl() {
         return url;
     }
 
+    /**
+     * sets the url variable to this value
+     *
+     * @param url new value for url
+     */
     public void setUrl(String url) {
         this.url = url;
     }
