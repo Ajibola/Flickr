@@ -15,10 +15,16 @@ public class Photo implements Serializable {
         this.title = title;
     }
 
+    /**
+     * @return the title variable
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * @return the url variable
+     */
     public String getUrl() {
         return url;
     }

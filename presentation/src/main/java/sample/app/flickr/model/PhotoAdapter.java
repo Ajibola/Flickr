@@ -1,6 +1,7 @@
 package sample.app.flickr.model;
 
 import sample.app.flickr.R;
+import sample.app.flickr.widget.PhotoViewHolder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -40,12 +41,23 @@ public class PhotoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         return photoList.size();
     }
 
+    /**
+     * Clears the existing collection and adds a new collection.
+     * Calls for the UI to be re drawn with notifyDataSetChanged
+     *
+     * @param collection value to replace existing collection
+     */
     public void refreshList(Collection<Photo> collection) {
         photoList.clear();
         photoList.addAll(collection);
         notifyDataSetChanged();
     }
 
+    /**
+     * Appends the parameter to the existing collection, and notifies the adapter of the newly inserted items
+     *
+     * @param collection list of items to be appended
+     */
     public void updateList(Collection<Photo> collection) {
         int oldRange = photoList.size();
         photoList.addAll(collection);
@@ -53,6 +65,9 @@ public class PhotoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         notifyItemRangeInserted(oldRange, newRange);
     }
 
+    /**
+     * @return the current list of elements in the adapter
+     */
     public List<Photo> getAll() {
         return photoList;
     }

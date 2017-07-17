@@ -9,6 +9,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
  */
 abstract class EndlessScroll extends RecyclerView.OnScrollListener {
 
+    // recyclerview is set to refresh when there are less than 20 visible items
     private int visibleThreshold = 20;
     private int currentPage = 1;
     private int previousTotalItemCount = 0;

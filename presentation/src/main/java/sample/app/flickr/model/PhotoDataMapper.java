@@ -23,6 +23,12 @@ public class PhotoDataMapper {
         return photo;
     }
 
+    /**
+     * Converts a list of FlickrPhoto to a list of Photo data objects
+     *
+     * @param flickrPhotoList the input list with data of type FlickrPhoto
+     * @return the output list with data of type Photo
+     */
     public List<Photo> convertList(List<FlickrPhoto> flickrPhotoList) {
         List<Photo> photoList = new ArrayList<>();
 

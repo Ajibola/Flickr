@@ -14,6 +14,7 @@ import sample.app.flickr.model.PhotoDataMapper;
  */
 public class SearchPhotoPresenter implements ISearchPhoto.Presenter {
 
+    private final String FIRST_PAGE = "1";
     private String searchText = "";
     private boolean loadMore = false;
     private final ISearchPhoto.View view;
@@ -29,7 +30,7 @@ public class SearchPhotoPresenter implements ISearchPhoto.Presenter {
         view.showLoading();
         searchText = text;
         loadMore = false;
-        searchPhotoInteractor.searchImage(text, "1", new PhotoListCallback());
+        searchPhotoInteractor.searchImage(text, FIRST_PAGE, new PhotoListCallback());
     }
 
     @Override
@@ -38,6 +39,9 @@ public class SearchPhotoPresenter implements ISearchPhoto.Presenter {
         searchPhotoInteractor.searchImage(searchText, page, new PhotoListCallback());
     }
 
+    /**
+     * An implementation of the DefaultListener that defines the generics object as a list of FlickrPhoto objects
+     */
     public class PhotoListCallback implements DefaultListener<List<FlickrPhoto>> {
 
         @Override
