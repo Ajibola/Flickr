@@ -29,6 +29,7 @@ public class PhotoViewHolder extends RecyclerView.ViewHolder {
 
     /**
      * renders the title of the photo and the image
+     *
      * @param photo the data object to be rendered
      */
     public void render(Photo photo) {
@@ -48,6 +49,7 @@ public class PhotoViewHolder extends RecyclerView.ViewHolder {
         Glide.with(photoImageView.getContext()).load(photo)
                 .placeholder(R.mipmap.flickr_empty_place_holder)
                 .error(R.mipmap.flickr_empty_place_holder)
+                .crossFade()
                 .into(photoImageView);
     }
 }
