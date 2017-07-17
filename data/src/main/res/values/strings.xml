@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">data</string>
+    <string name="flickr_url_string">http://farm%1$d.static.flickr.com/%2$s/%3$s_%4$s.jpg</string>
+    <string name="parse_flickr_photo_error">Unable to create a Flickr photo object.</string>
+    <string name="parse_flickr_photo_list_error">"Flickr response object is invalid. Please check response definition"</string>
+    <string name="test_file_not_found">The test file was not found</string>
+    <string name="test_file_io_exception">An input/output exception occured while parsing the test file</string>
 </resources>

@@ -16,16 +16,15 @@ import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.verifyZeroInteractions;
 
 /**
- * Created by hp on 7/14/2017.
+ * Unit tests for the repository implementation
  */
-
 @RunWith(MockitoJUnitRunner.class)
 public class FlickrPhotoRepositoryTest {
 
     private FlickrPhotoRepository flickrPhotoRepository;
 
-    @Mock FlickrSearchApiImpl flickrSearchApi;
-    @Mock DefaultListener<List<FlickrPhoto>> defaultListener;
+    @Mock private DefaultListener<List<FlickrPhoto>> defaultListener;
+    @Mock private FlickrSearchApiImpl flickrSearchApi;
 
     @Before
     public void setUp() {

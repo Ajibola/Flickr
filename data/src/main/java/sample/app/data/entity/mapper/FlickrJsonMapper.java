@@ -1,5 +1,7 @@
 package sample.app.data.entity.mapper;
 
+import sample.app.data.App;
+import sample.app.data.R;
 import sample.app.data.entity.FlickrPhotoEntity;
 
 import android.util.Log;
@@ -18,9 +20,24 @@ public class FlickrJsonMapper {
 
     private static final String TAG = FlickrJsonMapper.class.getSimpleName();
 
-    public FlickrJsonMapper() {
-    }
-
+    /**
+     * class method to convert a response string containing a flickr photo to the FlickrPhotoEntity data object
+     *
+     * {
+     * "id": "35923289165",
+     * "owner": "40081731@N05",
+     * "secret": "d4de32f357",
+     * "server": "4214",
+     * "farm": 5,
+     * "title": "Moz",
+     * "ispublic": 1,
+     * "isfriend": 0,
+     * "isfamily": 0
+     * }
+     *
+     * @param userJsonResponse json string to be mapped
+     * @return a data object of type FlickrPhotoEntity
+     */
     FlickrPhotoEntity parseFlickrPhoto(String userJsonResponse) {
         FlickrPhotoEntity flickrPhotoEntity = new FlickrPhotoEntity();
 
@@ -34,13 +51,30 @@ public class FlickrJsonMapper {
                 flickrPhotoEntity.setFarm(jsonObject.optInt("farm"));
                 flickrPhotoEntity.setTitle(jsonObject.optString("title"));
             } catch (JSONException ex) {
-                Log.d(TAG, "Error parsing Flickr response");
+                Log.d(TAG, App.getContext().getString(R.string.parse_flickr_photo_error));
             }
         }
 
         return flickrPhotoEntity;
     }
 
+    /**
+     * converts the flickr api response string json object to a list containing FlickrPhotoEntity data objects
+     *
+     * {
+     * "photos": {
+     * "page": 1,
+     * "pages": 1806,
+     * "perpage": 100,
+     * "total": "180534",
+     * "photo": []
+     * }
+     * }
+     * *
+     *
+     * @param flickJsonResponse a json string containing a photos object
+     * @return a list of FlickrPhotoEntity data objects
+     */
     public List<FlickrPhotoEntity> parseFlickrResponse(String flickJsonResponse) {
         List<FlickrPhotoEntity> flickrPhotoEntities = new ArrayList<>();
         try {
@@ -60,7 +94,7 @@ public class FlickrJsonMapper {
                 }
             }
         } catch (JSONException e) {
-            Log.e(TAG, "fail to parse flickr response ");
+            Log.d(TAG, App.getContext().getString(R.string.parse_flickr_photo_list_error));
         }
 
         return flickrPhotoEntities;

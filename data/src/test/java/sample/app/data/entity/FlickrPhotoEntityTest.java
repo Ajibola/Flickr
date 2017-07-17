@@ -24,7 +24,7 @@ public class FlickrPhotoEntityTest {
     }
 
     @Test
-    public void testDataModel_FlickrPhotoEntity() {
+    public void testDataModelFlickrPhotoEntity() {
         assertEquals(flickrPhotoEntity.getTitle(), "first");
         assertEquals(flickrPhotoEntity.getFarm(), 5);
     }

@@ -20,21 +20,20 @@ import static junit.framework.Assert.assertNotNull;
 @RunWith(RobolectricTestRunner.class)
 public class FlickrJsonMapperTest {
 
-    private static String JSON_RESPONSE_FLICKR_PHOTO;
-    private static String JSON_RESPONSE_FLICKR_PHOTO_LIST;
+    private String jsonResponseFlickrPhoto;
+    private String jsonResponseFlickrPhotoList;
     private FlickrJsonMapper flickrJsonMapper;
 
     @Before
     public void setUp() {
-        JSON_RESPONSE_FLICKR_PHOTO = new TestUtil().loadResourceFile("flickr_photo.json");
-        JSON_RESPONSE_FLICKR_PHOTO_LIST = new TestUtil().loadResourceFile("flickr_photo_list.json");
+        jsonResponseFlickrPhoto = new TestUtil().loadResourceFile("flickr_photo.json");
+        jsonResponseFlickrPhotoList = new TestUtil().loadResourceFile("flickr_photo_list.json");
         flickrJsonMapper = new FlickrJsonMapper();
     }
 
     @Test
     public void testConvertFlickrPhoto() {
-        FlickrPhotoEntity flickrPhotoEntity = flickrJsonMapper.parseFlickrPhoto
-                (JSON_RESPONSE_FLICKR_PHOTO);
+        FlickrPhotoEntity flickrPhotoEntity = flickrJsonMapper.parseFlickrPhoto(jsonResponseFlickrPhoto);
 
         assertNotNull(flickrPhotoEntity);
         assertEquals(flickrPhotoEntity.getId(), "35923289165");
@@ -43,8 +42,8 @@ public class FlickrJsonMapperTest {
 
     @Test
     public void testConvertFlickrPhotoList() {
-        List<FlickrPhotoEntity> flickrPhotoEntityList = flickrJsonMapper.parseFlickrResponse
-                (JSON_RESPONSE_FLICKR_PHOTO_LIST);
+        List<FlickrPhotoEntity> flickrPhotoEntityList = flickrJsonMapper.parseFlickrResponse(
+                jsonResponseFlickrPhotoList);
 
         assertNotNull(flickrPhotoEntityList);
         assertEquals(flickrPhotoEntityList.size(), 3);

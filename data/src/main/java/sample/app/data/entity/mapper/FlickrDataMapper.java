@@ -1,5 +1,7 @@
 package sample.app.data.entity.mapper;
 
+import sample.app.data.App;
+import sample.app.data.R;
 import sample.app.data.entity.FlickrPhotoEntity;
 import sample.app.domain.model.FlickrPhoto;
 
@@ -11,18 +13,21 @@ import java.util.List;
  */
 public class FlickrDataMapper {
 
-    public FlickrDataMapper() {
-    }
-
+    /**
+     * converts the data object of type FlickrPhotoEntity to a new data object of type FlickrPhoto
+     *
+     * @param flickrPhotoEntity source object to be converted
+     * @return returns a FlickrPhoto object
+     */
     private FlickrPhoto convert(FlickrPhotoEntity flickrPhotoEntity) {
         FlickrPhoto flickrPhoto = null;
 
         if (flickrPhotoEntity != null) {
             flickrPhoto = new FlickrPhoto("", "");
-            String url = "http://farm" + Integer.toString(flickrPhotoEntity.getFarm()) + ".static.flickr"
-                    + ".com/" + flickrPhotoEntity.getServer() + "/" + flickrPhotoEntity.getId() + "_"
-                    + flickrPhotoEntity.getSecret()
-                    + ".jpg";
+            String url = String.format(App.getContext().getString(R.string.flickr_url_string),
+                    flickrPhotoEntity.getFarm(),
+                    flickrPhotoEntity.getServer(), flickrPhotoEntity.getId(),
+                    flickrPhotoEntity.getSecret());
             flickrPhoto.setTitle(flickrPhotoEntity.getTitle());
             flickrPhoto.setUrl(url);
         }
@@ -30,6 +35,13 @@ public class FlickrDataMapper {
         return flickrPhoto;
     }
 
+    /**
+     * converts a list filled with data objects of type FlickrPhotoEntity into a new list with data objects
+     * of type FlickrPhoto
+     *
+     * @param flickrPhotoEntityList list of objects to be converted
+     * @return a list of FlickrPhoto objects
+     */
     public List<FlickrPhoto> convertList(List<FlickrPhotoEntity> flickrPhotoEntityList) {
         List<FlickrPhoto> flickrPhotoList = new ArrayList<>();
 
