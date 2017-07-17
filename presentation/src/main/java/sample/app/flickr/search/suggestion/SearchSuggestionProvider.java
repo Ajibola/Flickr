@@ -20,8 +20,7 @@ public class SearchSuggestionProvider extends SearchRecentSuggestionsProvider {
      * @return returns the string for the suggestion authority
      */
     public static String getSuggestionAuthority() {
-        ActivityThread at = ActivityThread.systemMain();
-        Context context = at.getSystemContext();
+
         return App.getContext().getString(R.string.search_suggestion_authority);
     }
 

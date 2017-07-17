@@ -13,7 +13,12 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        mContext = this;
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        mContext = base;
     }
 
     /**
