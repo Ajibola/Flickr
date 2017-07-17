@@ -3,4 +3,5 @@
     <string name="search_label">Flickr</string>
     <string name="search_hint">Search for images</string>
     <string name="search_string">Search</string>
+    <string name="search_suggestion_authority">sample.app.flickr.search.suggestion.SearchSuggestionProvider</string>
 </resources>

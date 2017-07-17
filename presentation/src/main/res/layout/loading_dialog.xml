@@ -10,14 +10,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:padding="8dp"
-        android:tint="#ffffff"
+        android:padding="@dimen/loading_padding"
         android:visibility="visible">
 
         <ProgressBar
             style="@style/Widget.AppCompat.ProgressBar"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="@dimen/indeterminate_progress_size"
+            android:layout_height="@dimen/indeterminate_progress_size"
             android:layout_gravity="center"
             android:indeterminate="true"/>
     </LinearLayout>
