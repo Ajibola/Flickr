@@ -1,4 +1,9 @@
 apply plugin: 'com.android.library'
+apply from: '../config/quality.gradle'
+
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     compileSdkVersion 25
@@ -11,8 +16,13 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
     buildTypes {
+        buildTypes.each {
+            it.buildConfigField 'String', 'FLICKR_API_KEY', keystoreProperties['FlickrApiKey']
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
